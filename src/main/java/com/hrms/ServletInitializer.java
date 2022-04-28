@@ -1,4 +1,4 @@
-package com.hrms.ssm_hrms;
+package com.hrms;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
