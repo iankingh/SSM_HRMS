@@ -1,7 +1,8 @@
 package com.hrms.service;
 
-import com.hrms.bean.Department;
 import com.hrms.mapper.DepartmentMapper;
+import com.hrms.model.Department;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @Service
 public class DepartmentService {
+    
     @Autowired
     DepartmentMapper departmentMapper;
 

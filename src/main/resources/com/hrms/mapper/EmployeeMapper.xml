@@ -10,20 +10,20 @@
         emp_id, emp_name, emp_email, gender, department_id, dept_id, dept_leader, dept_name
     </sql>
 
-    <resultMap id="withDeptResultMap" type="com.hrms.bean.Employee">
+    <resultMap id="withDeptResultMap" type="com.hrms.model.Employee">
         <id column="emp_id" property="empId"></id>
         <result column="emp_name" property="empName"></result>
         <result column="emp_email" property="empEmail"></result>
         <result column="gender" property="gender"></result>
         <result column="department_id" property="departmentId"></result>
-        <association property="department" column="department_id" javaType="com.hrms.bean.Department">
+        <association property="department" column="department_id" javaType="com.hrms.model.Department">
             <id column="dept_id" property="deptId"></id>
             <result column="dept_leader" property="deptLeader"></result>
             <result column="dept_name" property="deptName"></result>
         </association>
     </resultMap>
 
-    <select id="selectOneById" parameterType="java.lang.Integer" resultType="com.hrms.bean.Employee">
+    <select id="selectOneById" parameterType="java.lang.Integer" resultType="com.hrms.model.Employee">
         SELECT
         emp_id empId, emp_name empName, emp_email empEmail, gender, department_id departmentId
         FROM
@@ -32,7 +32,7 @@
         emp_id = #{empId}
     </select>
 
-    <select id="selectOneByName" parameterType="String" resultType="com.hrms.bean.Employee">
+    <select id="selectOneByName" parameterType="String" resultType="com.hrms.model.Employee">
         SELECT
         emp_id empId, emp_name empName, emp_email empEmail, gender, department_id departmentId
         FROM
@@ -65,7 +65,7 @@
         LIMIT #{offset}, #{limit}
     </select>
 
-    <update id="updateOneById" parameterType="com.hrms.bean.Employee">
+    <update id="updateOneById" parameterType="com.hrms.model.Employee">
         UPDATE
         <include refid="table_name"/>
         SET

@@ -8,7 +8,7 @@
     <sql id="select_fields">
         dept_id , dept_name, dept_leader
     </sql>
-    <resultMap id="deptResult" type="com.hrms.bean.Department">
+    <resultMap id="deptResult" type="com.hrms.model.Department">
         <id column="dept_id" property="deptId"></id>
         <result column="dept_name" property="deptName"></result>
         <result column="dept_leader" property="deptLeader"></result>
@@ -22,7 +22,7 @@
         LIMIT #{offset}, #{limit}
     </select>
 
-    <update id="updateDeptById" parameterType="com.hrms.bean.Department">
+    <update id="updateDeptById" parameterType="com.hrms.model.Department">
         UPDATE
         <include refid="table_name"></include>
         SET

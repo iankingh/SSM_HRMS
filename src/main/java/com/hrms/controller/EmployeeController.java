@@ -1,6 +1,6 @@
 package com.hrms.controller;
 
-import com.hrms.bean.Employee;
+import com.hrms.model.Employee;
 import com.hrms.service.EmployeeService;
 import com.hrms.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;

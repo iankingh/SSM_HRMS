@@ -1,7 +1,5 @@
 package com.hrms;
 
-import com.hrms.bean.Employee;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,6 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 import java.util.UUID;
+
+import com.hrms.model.Employee;
 
 /**
  * @author GenshenWang.nomico

@@ -1,11 +1,11 @@
 package com.hrms.service;
 
-import com.hrms.bean.Employee;
 import com.hrms.mapper.EmployeeMapper;
+import com.hrms.model.Employee;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 /**
  * @author GenshenWang.nomico

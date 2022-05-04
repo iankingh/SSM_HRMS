@@ -1,11 +1,12 @@
 package com.hrms.mapper;
 
-
+import org.apache.ibatis.annotations.Mapper;
 
 /**
- * @author GenshenWang.nomico
- * @date 2018/3/5.
+ * @author ian
+ * @since 1.0.0
  */
+@Mapper
 public interface DepartmentMapper {
 
     String TABLE_NAME = "tbl_dept";

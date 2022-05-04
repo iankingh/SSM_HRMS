@@ -1,13 +1,15 @@
 package com.hrms.mapper;
 
-import com.hrms.bean.Employee;
+import com.hrms.model.Employee;
 
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+
 
 /**
- * @author GenshenWang.nomico
- * @date 2018/3/5.
+ * @author ian
+ * @sine 1.0.0
  */
+@Mapper
 public interface EmployeeMapper {
 
     String TABLE_NAME = "tbl_emp";

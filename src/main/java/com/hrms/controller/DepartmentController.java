@@ -1,6 +1,6 @@
 package com.hrms.controller;
 
-import com.hrms.bean.Department;
+import com.hrms.model.Department;
 import com.hrms.service.DepartmentService;
 import com.hrms.util.JsonMsg;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 
 
 /**
