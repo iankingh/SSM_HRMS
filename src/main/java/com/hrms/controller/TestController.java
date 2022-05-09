@@ -14,6 +14,6 @@ public class TestController {
     @RequestMapping(value = "/test",  method = RequestMethod.GET)
     public String index(){
         System.out.println("测试。。。");
-        return "main";
+        return "test";
     }
 }

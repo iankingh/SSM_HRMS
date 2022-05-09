@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hrms.mapper.EmployeeMapper">
     <sql id="table_name">tbl_emp</sql>
     <sql id="select_fields">
@@ -27,7 +26,7 @@
         SELECT
         emp_id empId, emp_name empName, emp_email empEmail, gender, department_id departmentId
         FROM
-        <include refid="table_name"/>
+        <include refid="table_name" />
         WHERE
         emp_id = #{empId}
     </select>
@@ -36,14 +35,14 @@
         SELECT
         emp_id empId, emp_name empName, emp_email empEmail, gender, department_id departmentId
         FROM
-        <include refid="table_name"/>
+        <include refid="table_name" />
         WHERE
         emp_name = #{empName}
     </select>
 
-    <select id="selectWithDeptById" parameterType="Integer"  resultMap="withDeptResultMap">
+    <select id="selectWithDeptById" parameterType="Integer" resultMap="withDeptResultMap">
         SELECT
-        <include refid="select_withdept_fields"/>
+        <include refid="select_withdept_fields" />
         FROM
        tbl_emp e, tbl_dept d
         WHERE
@@ -54,7 +53,7 @@
 
     <select id="selectByLimitAndOffset" resultMap="withDeptResultMap">
         SELECT
-         <include refid="select_withdept_fields"></include>
+        <include refid="select_withdept_fields"></include>
         FROM
         tbl_emp e
         LEFT JOIN
@@ -67,7 +66,7 @@
 
     <update id="updateOneById" parameterType="com.hrms.model.Employee">
         UPDATE
-        <include refid="table_name"/>
+        <include refid="table_name" />
         SET
         emp_email = #{employee.empEmail, jdbcType = VARCHAR},
         gender = #{employee.gender, jdbcType = VARCHAR},

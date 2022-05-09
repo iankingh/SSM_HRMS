@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -16,14 +18,14 @@ import com.hrms.model.Employee;
  * @author ian
  * 
  */
+@Slf4j
 @SpringBootTest
-@ContextConfiguration(locations = {"classpath:applicationContext.xml", "classpath:springmvc.xml"})
 public class EmployeeMapperTest {
 
     @Autowired
     EmployeeMapper employeeMapper;
 
-    //用来批量插入操作
+    //用來批量插入操作
     @Autowired
     SqlSession sqlSession;
 
@@ -34,9 +36,9 @@ public class EmployeeMapperTest {
     public void insertOneTest(){
         Employee employee = new Employee(1, "aa", "aa@qq.com", "男", 2);
         int res = employeeMapper.insertOne(employee);
-        System.out.println(res);
+        log.debug("res :{}", res);
     }
-
+    
     /**
      * 批量插入
      */
@@ -46,16 +48,15 @@ public class EmployeeMapperTest {
         for (int i = 1; i < 200; i++) {
             String uid = UUID.randomUUID().toString().substring(0, 5);
             employeeMapper.insertOne(new Employee(i, "name_"+uid, uid+"@qq.com",  i%2==0? "F":"M", i%6+1));
-
         }
     }
-
+    
     @Test
     public void updateOneByIdTest(){
         Employee employee =
-                new Employee(1, "aa", "aa@qq.com", "女", 3);
+        new Employee(1, "aa", "aa@qq.com", "女", 3);
         int res = employeeMapper.updateOneById(1, employee);
-        System.out.println(res);
+        log.debug("res :{}", res);
     }
 
     @Test
