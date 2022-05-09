@@ -48,10 +48,10 @@ public class EmployeeController {
     @RequestMapping(value ="/updateEmp/{empId}", method = RequestMethod.PUT)
     @ResponseBody
     public JsonMsg updateEmp(@PathVariable("empId") Integer empId,  Employee employee){
-        // int res = employeeService.updateEmpById(empId, employee);
-        // if (res != 1){
-        //     return JsonMsg.fail().addInfo("emp_update_error", "更改异常");
-        // }
+        int res = employeeService.updateEmpById(empId, employee);
+        if (res != 1){
+            return JsonMsg.fail().addInfo("emp_update_error", "更改异常");
+        }
         return JsonMsg.success();
     }
 
@@ -68,12 +68,12 @@ public class EmployeeController {
         if(!empName.matches(regName)){
             return JsonMsg.fail().addInfo("name_reg_error", "输入姓名为2-5位中文或6-16位英文和数字组合");
         }
-        // Employee employee = employeeService.getEmpByName(empName);
-        // if (employee != null){
-        //     return JsonMsg.fail().addInfo("name_reg_error", "用户名重复");
-        // }else {
+        Employee employee = employeeService.getEmpByName(empName);
+        if (employee != null){
+            return JsonMsg.fail().addInfo("name_reg_error", "用户名重复");
+        }else {
             return JsonMsg.success();
-        // }
+        }
     }
 
     /**
@@ -114,12 +114,12 @@ public class EmployeeController {
     @RequestMapping(value = "/getEmpById/{empId}", method = RequestMethod.GET)
     @ResponseBody
     public JsonMsg getEmpById(@PathVariable("empId") Integer empId){
-        // Employee employee = employeeService.getEmpById(empId);
-        // if (employee != null){
-        //     return JsonMsg.success().addInfo("employee", employee);
-        // }else {
+        Employee employee = employeeService.getEmpById(empId);
+        if (employee != null){
+            return JsonMsg.success().addInfo("employee", employee);
+        }else {
             return JsonMsg.fail();
-        // }
+        }
 
     }
     /**
@@ -136,7 +136,7 @@ public class EmployeeController {
         // 第2页从第6行(offset=(2-1)*5=5,offset+1=5+1=6)记录开始查询
         int offset = (pageNo-1)*limit;
         //获取指定页数包含的员工信息
-        // List<Employee> employees = employeeService.getEmpList(offset, limit);
+        List<Employee> employees = employeeService.getEmpList(offset, limit);
         //获取总的记录数
         int totalItems = employeeService.getEmpCount();
         //获取总的页数
@@ -146,10 +146,10 @@ public class EmployeeController {
         int curPage = pageNo;
 
         //将上述查询结果放到Model中，在JSP页面中可以进行展示
-        // mv.addObject("employees", employees)
-        //         .addObject("totalItems", totalItems)
-        //         .addObject("totalPages", totalPages)
-        //         .addObject("curPage", curPage);
+        mv.addObject("employees", employees)
+                .addObject("totalItems", totalItems)
+                .addObject("totalPages", totalPages)
+                .addObject("curPage", curPage);
         return mv;
     }
 

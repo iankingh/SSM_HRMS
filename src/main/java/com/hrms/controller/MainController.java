@@ -2,7 +2,6 @@ package com.hrms.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author GenshenWang.nomico
@@ -12,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/hrms")
 public class MainController {
 
-
+    
 }

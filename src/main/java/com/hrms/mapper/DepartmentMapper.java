@@ -1,6 +1,14 @@
 package com.hrms.mapper;
 
+import java.util.List;
+
+import com.hrms.model.Department;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * @author ian
@@ -17,46 +25,53 @@ public interface DepartmentMapper {
 
 
     /**
-     * =================================删除============================================
+     * 删除部門
+     * @param deptId
+     * @return
      */
-//     @Delete({"DELETE FROM", TABLE_NAME, "WHERE dept_id=#{deptId}"})
-//     int deleteDeptById(@Param("deptId") Integer deptId);
+    @Delete({"DELETE FROM", TABLE_NAME, "WHERE dept_id=#{deptId}"})
+    int deleteDeptById(@Param("deptId") Integer deptId);
+
 
     /**
-     * =================================更改============================================
+     * 修改部門
+     * @param deptId
+     * @param department
+     * @return
      */
-//     int updateDeptById(@Param("deptId") Integer deptId,
-//                        @Param("department") Department department);
-
+    int updateDeptById(@Param("deptId") Integer deptId,
+                       @Param("department") Department department);
     /**
-     * =================================新增============================================
+     * 新增部門
+     * @param department
+     * @return
      */
-//     @Insert({"INSERT INTO",TABLE_NAME, "(", INSERT_FIELDS ,") " +
-//             "VALUES(#{department.deptName}, #{department.deptLeader})" })
-//     int insertDept(@Param("department") Department department);
+    @Insert({"INSERT INTO",TABLE_NAME, "(", INSERT_FIELDS ,") " +
+            "VALUES(#{department.deptName}, #{department.deptLeader})" })
+    int insertDept(@Param("department") Department department);
 
     /**
      * =================================查询============================================
      */
-//     @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME, "WHERE dept_id=#{deptId}" })
-//     Department selectOneById(@Param("deptId") Integer deptId);
-//     @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME, "WHERE dept_leader=#{deptLeader}" })
-//     Department selectOneByLeader(@Param("deptLeader") String deptLeader);
-//     @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME, "WHERE dept_name=#{deptName}" })
-//     Department selectOneByName(@Param("deptName") String deptName);
-//     @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME})
-//     List<Department> selectDeptList();
+    @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME, "WHERE dept_id=#{deptId}" })
+    Department selectOneById(@Param("deptId") Integer deptId);
+    @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME, "WHERE dept_leader=#{deptLeader}" })
+    Department selectOneByLeader(@Param("deptLeader") String deptLeader);
+    @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME, "WHERE dept_name=#{deptName}" })
+    Department selectOneByName(@Param("deptName") String deptName);
+    @Select({"SELECT", SELECT_FIELDS, "FROM", TABLE_NAME})
+    List<Department> selectDeptList();
 
-//     List<Department> selectDeptsByLimitAndOffset(@Param("offset") Integer offset,
-                                                //  @Param("limit") Integer limit);
+    List<Department> selectDeptsByLimitAndOffset(@Param("offset") Integer offset,
+                                                 @Param("limit") Integer limit);
 
-//     @Select({"SELECT COUNT(dept_id) FROM", TABLE_NAME,
-//             "WHERE deptLeader = #{deptLeader} OR deptName = #{deptName}"})
-//     int checkDeptsExistsByNameAndleader(@Param("deptLeader") String deptLeader,
-//                          @Param("deptName") String deptName);
+    @Select({"SELECT COUNT(dept_id) FROM", TABLE_NAME,
+            "WHERE deptLeader = #{deptLeader} OR deptName = #{deptName}"})
+    int checkDeptsExistsByNameAndleader(@Param("deptLeader") String deptLeader,
+                         @Param("deptName") String deptName);
 
-//     @Select({"SELECT COUNT(*) FROM", TABLE_NAME})
-//     int countDepts();
+    @Select({"SELECT C?OUNT(*) FROM", TABLE_NAME})
+    int countDepts();
 
 
 }

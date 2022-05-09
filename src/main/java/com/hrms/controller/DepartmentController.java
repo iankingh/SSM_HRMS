@@ -1,5 +1,7 @@
 package com.hrms.controller;
 
+import java.util.List;
+
 import com.hrms.model.Department;
 import com.hrms.service.DepartmentService;
 import com.hrms.util.JsonMsg;
@@ -67,10 +69,10 @@ public class DepartmentController {
     @RequestMapping(value = "/addDept", method = RequestMethod.PUT)
     @ResponseBody
     public JsonMsg addDept(Department department){
-        // int res = departmentService.addDept(department);
-        // if (res != 1){
-            // return JsonMsg.fail().addInfo("add_dept_error", "添加异常！");
-        // }
+        int res = departmentService.addDept(department);
+        if (res != 1){
+            return JsonMsg.fail().addInfo("add_dept_error", "添加异常！");
+        }
         return JsonMsg.success();
     }
 
@@ -85,12 +87,11 @@ public class DepartmentController {
         //每页显示的记录行数
         int limit = 5;
         //总记录数
-        // int totalItems = departmentService.getDeptCount();
-        // int temp = totalItems / limit;
-        // int totalPages = (totalItems % limit== 0) ? temp : temp+1;
+        int totalItems = departmentService.getDeptCount();
+        int temp = totalItems / limit;
+        int totalPages = (totalItems % limit== 0) ? temp : temp+1;
 
-        // return JsonMsg.success().addInfo("totalPages", totalPages);
-        return null;
+        return JsonMsg.success().addInfo("totalPages", totalPages);
     }
 
     /**
@@ -102,7 +103,7 @@ public class DepartmentController {
     public JsonMsg getDeptById(@PathVariable("deptId") Integer deptId){
         Department department = null;
         if (deptId > 0){
-            // department = departmentService.getDeptById(deptId);
+            department = departmentService.getDeptById(deptId);
         }
         if (department != null){
             return JsonMsg.success().addInfo("department", department);
@@ -121,18 +122,17 @@ public class DepartmentController {
         //每页显示的记录行数
         int limit = 5;
         //总记录数
-        // int totalItems = departmentService.getDeptCount();
-        // int totalItems =0;
-        // int temp = totalItems / limit;
-        // int totalPages = (totalItems % limit== 0) ? temp : temp+1;
-        // //每页的起始行(offset+1)数据，如第一页(offset=0，从第1(offset+1)行数据开始)
-        // int offset = (pageNo - 1)*limit;
-        // List<Department> departments = departmentService.getDeptList(offset, limit);
+        int totalItems = departmentService.getDeptCount();
+        int temp = totalItems / limit;
+        int totalPages = (totalItems % limit== 0) ? temp : temp+1;
+        //每页的起始行(offset+1)数据，如第一页(offset=0，从第1(offset+1)行数据开始)
+        int offset = (pageNo - 1)*limit;
+        List<Department> departments = departmentService.getDeptList(offset, limit);
 
-        // mv.addObject("departments", departments)
-        //         .addObject("totalItems", totalItems)
-        //         .addObject("totalPages", totalPages)
-        //         .addObject("curPageNo", pageNo);
+        mv.addObject("departments", departments)
+                .addObject("totalItems", totalItems)
+                .addObject("totalPages", totalPages)
+                .addObject("curPageNo", pageNo);
         return mv;
     }
 

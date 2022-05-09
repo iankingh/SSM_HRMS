@@ -14,35 +14,40 @@ import java.util.List;
  */
 @Service
 public class DepartmentService {
-    
+
     @Autowired
     DepartmentMapper departmentMapper;
 
-    // public int deleteDeptById(Integer deptId){
-    //     return departmentMapper.deleteDeptById(deptId);
-    // }
-    // public int updateDeptById(Integer deptId, Department department){
-    //     return departmentMapper.updateDeptById(deptId, department);
-    // }
-    // public int addDept(Department department){
-    //     return departmentMapper.insertDept(department);
-    // }
-    // public int getDeptCount(){
-    //     return departmentMapper.countDepts();
-    // }
-    // public List<Department> getDeptList(Integer offset, Integer limit){
-    //     return departmentMapper.selectDeptsByLimitAndOffset(offset, limit);
-    // };
-    // public Department getDeptById(Integer deptId){
-    //     return departmentMapper.selectOneById(deptId);
-    // }
-    // public Department getDeptByName(String deptName){
-    //     return departmentMapper.selectOneByName(deptName);
-    // }
+    public int deleteDeptById(Integer deptId) {
+        return departmentMapper.deleteDeptById(deptId);
+    }
 
+    public int updateDeptById(Integer deptId, Department department) {
+        return departmentMapper.updateDeptById(deptId, department);
+    }
 
-    // public List<Department> getDeptName(){
-    //     return departmentMapper.selectDeptList();
-    // }
+    public int addDept(Department department) {
+        return departmentMapper.insertDept(department);
+    }
+
+    public int getDeptCount() {
+        return departmentMapper.countDepts();
+    }
+
+    public List<Department> getDeptList(Integer offset, Integer limit) {
+        return departmentMapper.selectDeptsByLimitAndOffset(offset, limit);
+    };
+
+    public Department getDeptById(Integer deptId) {
+        return departmentMapper.selectOneById(deptId);
+    }
+
+    public Department getDeptByName(String deptName) {
+        return departmentMapper.selectOneByName(deptName);
+    }
+
+    public List<Department> getDeptName() {
+        return departmentMapper.selectDeptList();
+    }
 
 }

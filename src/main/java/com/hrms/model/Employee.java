@@ -9,5 +9,17 @@ public class Employee {
     private String empEmail;
     private String gender;
     private Integer departmentId;
-    
+
+    public Employee() {
+
+    }
+
+    public Employee(Integer empId, String empName, String empEmail, String gender, Integer departmentId) {
+        this.empId = empId;
+        this.empName = empName;
+        this.empEmail = empEmail;
+        this.gender = gender;
+        this.departmentId = departmentId;
+    }
+
 }
