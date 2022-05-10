@@ -33,7 +33,7 @@ public class DepartmentController {
     public JsonMsg deleteDept(@PathVariable("deptId") Integer deptId){
         int res = 0;
         if (deptId > 0){
-            // res = departmentService.deleteDeptById(deptId);
+            res = departmentService.deleteDeptById(deptId);
         }
         if (res != 1){
             return JsonMsg.fail().addInfo("del_dept_error", "删除异常");
@@ -42,7 +42,7 @@ public class DepartmentController {
     }
 
     /**
-     * 部门更改
+     * 部門更改
      * @param deptId
      * @param department
      * @return
@@ -143,10 +143,10 @@ public class DepartmentController {
     @RequestMapping(value = "/getDeptName", method = RequestMethod.GET)
     @ResponseBody
     public JsonMsg getDeptName(){
-        // List<Department> departmentList = departmentService.getDeptName();
-        // if (departmentList != null){
-        //     return JsonMsg.success().addInfo("departmentList", departmentList);
-        // }
+        List<Department> departmentList = departmentService.getDeptName();
+        if (departmentList != null){
+            return JsonMsg.success().addInfo("departmentList", departmentList);
+        }
         return JsonMsg.fail();
     }
 

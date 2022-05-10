@@ -1,5 +1,5 @@
-
 spring:
+    
     # thymeleaf:
     #     cache: false
     #     prefix: classpath:/WEB-INF/views/    # 設定去templates資料夾找html檔案 ; 預設為resources/templates
