@@ -16,8 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
 
     /**
-     * 登录：跳转到登录页面
-     * 
+     * 登入 : 跳轉到登入頁面
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -26,8 +25,7 @@ public class LoginController {
     }
 
     /**
-     * 对登录页面输入的用户名和密码做简单的判断
-     * 
+     * 對登入頁面输入的用户名和密碼做簡單的判断
      * @param request
      * @return
      */
@@ -38,14 +36,15 @@ public class LoginController {
         String password = request.getParameter("password");
         System.out.println(username + password);
         if (!"admin1234".equals(username + password)) {
-            return JsonMsg.fail().addInfo("login_error", "输入账号用户名与密码不匹配，请重新输入！");
+            
+
+            return JsonMsg.fail().addInfo("login_error", "輸入賬號名與密碼不匹配，請重新輸入!");
         }
         return JsonMsg.success();
     }
 
     /**
-     * 跳转到主页面
-     * 
+     *  跳轉道主頁面
      * @return
      */
     @RequestMapping(value = "/main", method = RequestMethod.GET)
@@ -54,7 +53,7 @@ public class LoginController {
     }
 
     /**
-     * 退出登录：从主页面跳转到登录页面
+     *退出登錄：從主頁面跳轉到登錄頁面
      * 
      * @return
      */

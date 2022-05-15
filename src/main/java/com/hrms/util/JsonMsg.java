@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author GenshenWang.nomico
- * @date 2018/3/7.
+ * @author ian
  */
 public class JsonMsg {
 

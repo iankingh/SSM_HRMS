@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author GenshenWang.nomico
- * @date 2018/3/2.
+ * @author ian
  */
 @Slf4j
 @Controller
