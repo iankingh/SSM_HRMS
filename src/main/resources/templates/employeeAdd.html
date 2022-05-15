@@ -8,7 +8,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">员工新增</h4>
+                <h4 class="modal-title">員工新增</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal add_emp_form">
@@ -38,11 +38,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="add_department" class="col-sm-2 control-label">部门</label>
+                        <label for="add_department" class="col-sm-2 control-label">部門</label>
                         <div class="col-sm-8">
                             <div class="checkbox">
                                 <select class="form-control" name="departmentId" id="add_department">
-                                   <%-- <option value="1">CEO</option>--%>
+                                 <option value="1">CEO</option>
                                 </select>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
                 <button type="button" class="btn btn-primary emp_save_btn">保存</button>
             </div>
         </div><!-- /.modal-content -->
@@ -60,7 +60,8 @@
 
 <script type="text/javascript">
 
-    <!-------------------------------------员工新增操作-------------------------------------->
+// 員工新增操作
+
     //=======0 点击 员工新增按钮，发送AJAX请求查询部门列表信息，弹出模态框，
     // 将查询得到的部门列表信息显示在对应模态框中部门信息处。=============================
     $(".emp_add_btn").click(function () {
@@ -172,13 +173,7 @@
                     alert("员工新增失败！");
                 }
             }
-
         });
-
-
-
-
-
     });
 
 

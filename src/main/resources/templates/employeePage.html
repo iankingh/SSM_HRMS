@@ -1,17 +1,16 @@
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>员工管理页面</title>
 </head>
 <body>
 <div class="hrms_container">
-    <!-- 导航条 -->
-    <!-- <%@ include file="./commom/head.jsp"%> -->
-
-    <!-- 中间部分（包括左边栏和员工/部门表单显示部分） -->
-    <div class="hrms_body" style="position:relative; top:-15px;">
-
-        <!-- 左侧栏 -->
-        <!-- <%@ include file="./commom/leftsidebar.jsp"%> -->
+   <!-- 導航條 -->
+   <div th:include="commom/head :: head"></div>
+   <!-- 中間部分（包括左邊欄和員工/部門表單顯示部分） -->
+   <div class="hrms_body" style="position:relative; top:-15px;">
+       <!-- 左側欄 -->
+       <div th:include="commom/leftsidebar :: leftsidebar"></div>
 
         <!-- 中间员工表格信息展示内容 -->
         <div class="emp_info col-sm-10">
@@ -103,13 +102,12 @@
             </div><!-- /.panel panel-success -->
         </div><!-- /.emp_info -->
 
-        <!-- 尾部 -->
-        <!-- <%@ include file="./commom/foot.jsp"%> -->
+         <!-- 尾部 -->
+         <div th:include="commom/foot :: foot"></div>
     </div><!-- /.hrms_body -->
 </div><!-- /.container -->
-
-<!-- <%@ include file="employeeAdd.jsp"%> -->
-<!-- <%@ include file="employeeUpdate.jsp"%> -->
+<div th:include="employeeAdd :: employeeAdd"></div>
+<div th:include="employeeUpdate :: employeeUpdate"></div>
 
 
 <script>
@@ -131,8 +129,7 @@
             }
         });
     })
-
-    <!-- ==========================员工删除操作=================================== -->
+    // 員工刪除操作
     $(".emp_delete_btn").click(function () {
         var curPage = ${curPage};
         var delEmpId = $(this).parent().parent().find("td:eq(0)").text();

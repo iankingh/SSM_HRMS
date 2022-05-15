@@ -1,4 +1,5 @@
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Employee Update Page</title>
 </head>
@@ -8,7 +9,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">员工更改</h4>
+                <h4 class="modal-title">員工更改</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal update_emp_form">
@@ -41,7 +42,7 @@
                         <div class="col-sm-8">
                             <div class="checkbox">
                                 <select class="form-control" name="departmentId" id="update_department">
-                                    <%-- <option value="1">CEO</option>--%>
+                                    <option value="1">CEO</option>
                                 </select>
                             </div>
                         </div>
@@ -49,7 +50,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
                 <button type="button" class="btn btn-primary emp_update_btn">保存</button>
             </div>
         </div><!-- /.modal-content -->
