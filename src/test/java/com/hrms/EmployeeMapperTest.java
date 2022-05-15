@@ -4,7 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +33,7 @@ public class EmployeeMapperTest {
      */
     @Test
     public void insertOneTest(){
-        Employee employee = new Employee(1, "aa", "aa@qq.com", "男", 2);
+        Employee employee = new Employee(1, "aa", "aa@gmail.com", "男", 2);
         int res = employeeMapper.insertOne(employee);
         log.debug("res :{}", res);
     }
@@ -47,14 +46,14 @@ public class EmployeeMapperTest {
         EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
         for (int i = 1; i < 200; i++) {
             String uid = UUID.randomUUID().toString().substring(0, 5);
-            employeeMapper.insertOne(new Employee(i, "name_"+uid, uid+"@qq.com",  i%2==0? "F":"M", i%6+1));
+            employeeMapper.insertOne(new Employee(i, "name_"+uid, uid+"@gmail.com",  i%2==0? "F":"M", i%6+1));
         }
     }
     
     @Test
     public void updateOneByIdTest(){
         Employee employee =
-        new Employee(1, "aa", "aa@qq.com", "女", 3);
+        new Employee(1, "aa", "aa@gmail.com", "女", 3);
         int res = employeeMapper.updateOneById(1, employee);
         log.debug("res :{}", res);
     }
