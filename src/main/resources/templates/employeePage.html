@@ -5,13 +5,13 @@
 <body>
 <div class="hrms_container">
     <!-- 导航条 -->
-    <%@ include file="./commom/head.jsp"%>
+    <!-- <%@ include file="./commom/head.jsp"%> -->
 
     <!-- 中间部分（包括左边栏和员工/部门表单显示部分） -->
     <div class="hrms_body" style="position:relative; top:-15px;">
 
         <!-- 左侧栏 -->
-        <%@ include file="./commom/leftsidebar.jsp"%>
+        <!-- <%@ include file="./commom/leftsidebar.jsp"%> -->
 
         <!-- 中间员工表格信息展示内容 -->
         <div class="emp_info col-sm-10">
@@ -35,7 +35,7 @@
                     <th>操作</th>
                     </thead>
                     <tbody>
-                        <c:forEach items="${employees}" var="emp">
+                        <!-- <c:forEach items="${employees}" var="emp">
                             <tr>
                                 <td>${emp.empId}</td>
                                 <td>${emp.empName}</td>
@@ -47,11 +47,11 @@
                                     <a href="#" role="button" class="btn btn-danger emp_delete_btn">删除</a>
                                 </td>
                             </tr>
-                        </c:forEach>
+                        </c:forEach> -->
                     </tbody>
                 </table>
 
-                <div class="panel-body">
+                <!-- <div class="panel-body">
                     <div class="table_items">
                         当前第<span class="badge">${curPage}</span>页，共有<span class="badge">${totalPages}</span>页，总记录数<span class="badge">${totalItems}</span>条。
                     </div>
@@ -99,17 +99,17 @@
                             <li><a href="/hrms/emp/getEmpList?pageNo=${totalPages}">尾页</a></li>
                         </ul>
                     </nav>
-                </div>
+                </div> -->
             </div><!-- /.panel panel-success -->
         </div><!-- /.emp_info -->
 
         <!-- 尾部 -->
-        <%@ include file="./commom/foot.jsp"%>
+        <!-- <%@ include file="./commom/foot.jsp"%> -->
     </div><!-- /.hrms_body -->
 </div><!-- /.container -->
 
-<%@ include file="employeeAdd.jsp"%>
-<%@ include file="employeeUpdate.jsp"%>
+<!-- <%@ include file="employeeAdd.jsp"%> -->
+<!-- <%@ include file="employeeUpdate.jsp"%> -->
 
 
 <script>

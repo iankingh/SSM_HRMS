@@ -1,5 +1,6 @@
+# server:
+#   port: 9100 # 伺服器的port號
 spring:
-    
     # thymeleaf:
     #     cache: false
     #     prefix: classpath:/WEB-INF/views/    # 設定去templates資料夾找html檔案 ; 預設為resources/templates
@@ -11,8 +12,14 @@ spring:
     #     username: root
     #     password: root
     #     driver-class-name: com.mysql.jdbc.Driver
+    h2:
+      console:
+        enabled: true
     datasource:
-        url: jdbc:h2:mem:mydb
-        username: sa
-        password: password
-        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:mydb # h2 database 連接位址
+        username: sa          # database 用戶名
+        password: password    # database 密碼
+        driverClassName: org.h2.Driver  # 配置driver  
+        
+
+
