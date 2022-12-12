@@ -2,12 +2,12 @@
 
 ## 前言
 
-一、准备
-准备部分主要包括数据库建表、SSM框架的搭建启动。
+一、準備
+準備部分主要包括數據倉庫構建表、SSM框架的搭構建啟動。
 
-1 数据库建表
+1 table
 
-tbl_emp表：
+tbl_emp：
 
 ```
 CREATE TABLE tbl_emp(
@@ -33,4 +33,5 @@ CREATE TABLE tbl_dept(
 
 )
 ```
-对应的实体类见bean/Employee.java和bean/Department.java
+
+對應實體類 : bean/Employee.java和bean/Department.java
